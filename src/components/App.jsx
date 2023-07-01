@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/operations';
 import { getContacts, getError, getIsLoading } from 'redux/selectors';
 
+import { LoginForm } from './LoginForm/LoginForm';
+import { RegisterForm } from './RegisterForm/RegisterForm';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter';
@@ -29,14 +31,18 @@ export function App() {
     >
       <h1 className="hero_title">Phonebook</h1>
 
-      <ContactForm></ContactForm>
+      <RegisterForm></RegisterForm>
+      
+      <LoginForm></LoginForm>
+
+      {/* <ContactForm></ContactForm> */}
 
       {isLoading && <b>Loading contacts...</b>}
 
       {items.length !== 0 ? (
         <>
-          <Filter></Filter>
-          <ContactList></ContactList>
+          {/* <Filter></Filter> */}
+          {/* <ContactList></ContactList> */}
         </>
       ) : (
         <p>Looks like you don`t have any contacts. Please add new contact.</p>
