@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/operations';
 import { getContacts, getError, getIsLoading } from 'redux/selectors';
 
-import { LoginForm } from './LoginForm/LoginForm';
-import { RegisterForm } from './RegisterForm/RegisterForm';
+// import { LoginForm } from './LoginForm/LoginForm';
+// import { RegisterForm } from './RegisterForm/RegisterForm';
+import { AppBar } from './AppBar/AppBar';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter';
@@ -31,9 +32,7 @@ export function App() {
     >
       <h1 className="hero_title">Phonebook</h1>
 
-      <RegisterForm></RegisterForm>
-      
-      <LoginForm></LoginForm>
+      <AppBar></AppBar>
 
       {/* <ContactForm></ContactForm> */}
 
