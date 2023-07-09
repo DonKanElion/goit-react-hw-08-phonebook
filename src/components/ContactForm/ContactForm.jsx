@@ -7,7 +7,7 @@ import classNames from 'classnames';
 
 import s from './ContactForm.module.css';
 
-export function ContactForm() {
+function ContactForm() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const contacts = useSelector(getContacts);

@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 
 // import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 // import { LoginForm } from 'components/LoginForm/LoginForm';
@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 export const AuthNav = () => {
   return (
     <div>
+      <h3>AuthNav</h3>
       <a href='/'>Register</a>
       <a href='/'><br/>Log In</a>
       {/* <NavLink to="/register">Register</NavLink>

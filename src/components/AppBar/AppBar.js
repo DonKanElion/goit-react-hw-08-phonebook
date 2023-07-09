@@ -23,8 +23,9 @@ export const AppBar = () => {
             Switch Auth user {userState}
           </button>
         </nav>
-
+        
         {!activeUser ? <UserMemu /> : <AuthNav />}
+        
       </div>
       <h1>Contacts manager welcome page 💁‍♀️</h1>
     </header>

@@ -3,18 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/operations';
 import { getContacts, getError, getIsLoading } from 'redux/selectors';
 
-// import { LoginForm } from './LoginForm/LoginForm';
-// import { RegisterForm } from './RegisterForm/RegisterForm';
-import { AppBar } from './AppBar/AppBar';
-import { AuthNav } from './AuthNav/AuthNav';
-import Register from 'pages/Register';
-import Contacts from 'pages/Contacts';
-import NotFound from 'pages/NotFound';
-// import { ContactForm } from 'components/ContactForm/ContactForm';
-// import ContactList from './ContactList/ContactList';
-// import Filter from './Filter';
+import ContactForm from 'components/ContactForm/ContactForm'
+import ContactList from 'components/ContactList/ContactList';
+import Filter from 'components/Filter/Filter'
 
-export function App() {
+
+ const  ContactsEditor = () => {
   const dispatch = useDispatch();
   const items = useSelector(getContacts);
   const isLoading = useSelector(getIsLoading);
@@ -36,20 +30,14 @@ export function App() {
     >
       <h1 className="hero_title">Phonebook</h1>
 
-      <AppBar></AppBar>
-      <AuthNav/>
-      <Register/>
-      <Contacts/>
-      <NotFound/>
-
-      {/* <ContactForm></ContactForm> */}
+      <ContactForm></ContactForm>
 
       {isLoading && <b>Loading contacts...</b>}
 
       {items.length !== 0 ? (
         <>
-          {/* <Filter></Filter> */}
-          {/* <ContactList></ContactList> */}
+          <Filter></Filter>
+          <ContactList></ContactList>
         </>
       ) : (
         <p>Looks like you don`t have any contacts. Please add new contact.</p>
@@ -61,3 +49,5 @@ export function App() {
     </div>
   );
 }
+
+export default ContactsEditor; 
