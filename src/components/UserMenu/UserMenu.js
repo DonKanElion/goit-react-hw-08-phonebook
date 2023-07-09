@@ -3,12 +3,12 @@
 export const UserMemu = () => {
   return (
     <div>
-      <p>Welcome, Antoshka</p>
+      <h2>Welcome, Antoshka</h2>
       <button
         type="button"
-        onClick={() => console.log('Клік по лог Ауту (dispatch)')}
+        onClick={() => console.log('Click on the LogOut (dispatch)')}
       >
-        Logout
+        LogOut
       </button>
     </div>
   );

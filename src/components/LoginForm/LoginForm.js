@@ -3,15 +3,20 @@
 // import css
 
 export const LoginForm = () => {
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    
+    console.log('Submit LoginForm');
+  };
   return (
-    <form autoComplete="off">
+    <form autoComplete="off" onSubmit={handleSubmit}>
       <label>
         Email
-        <imput type="email" name="email" />
+        <input type="email" name="email" />
       </label>
       <label>
         Password
-        <imput type="password" name="password" />
+        <input type="password" name="password" />
       </label>
       <button type="submit">Log In</button>
     </form>

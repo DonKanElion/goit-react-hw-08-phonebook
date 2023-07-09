@@ -1,29 +1,14 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts } from 'redux/operations';
-import { getContacts, getError, getIsLoading } from 'redux/selectors';
-
-// import { LoginForm } from './LoginForm/LoginForm';
-// import { RegisterForm } from './RegisterForm/RegisterForm';
-import { AppBar } from './AppBar/AppBar';
-import { AuthNav } from './AuthNav/AuthNav';
-import Register from 'pages/Register';
+import { Routes, Route } from 'react-router-dom';
+// import { AppBar } from './AppBar/AppBar';
+// import { AuthNav } from './AuthNav/AuthNav';
+import Layout from './Layout';
+import HomePage from 'pages/HomePage';
 import Contacts from 'pages/Contacts';
+import Login from 'pages/Login';
+import Register from 'pages/Register';
 import NotFound from 'pages/NotFound';
-// import { ContactForm } from 'components/ContactForm/ContactForm';
-// import ContactList from './ContactList/ContactList';
-// import Filter from './Filter';
 
 export function App() {
-  const dispatch = useDispatch();
-  const items = useSelector(getContacts);
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
   return (
     <div
       style={{
@@ -34,30 +19,17 @@ export function App() {
       }}
       className="section"
     >
-      <h1 className="hero_title">Phonebook</h1>
+      <h3 className="hero_title">Phonebook 💁‍♂️ </h3>
 
-      <AppBar></AppBar>
-      <AuthNav/>
-      <Register/>
-      <Contacts/>
-      <NotFound/>
-
-      {/* <ContactForm></ContactForm> */}
-
-      {isLoading && <b>Loading contacts...</b>}
-
-      {items.length !== 0 ? (
-        <>
-          {/* <Filter></Filter> */}
-          {/* <ContactList></ContactList> */}
-        </>
-      ) : (
-        <p>Looks like you don`t have any contacts. Please add new contact.</p>
-      )}
-
-      {error && <b>Error: {error}</b>}
-
-      {/* {isLoading && !error && <b>Request in progress...</b>}     */}
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
     </div>
   );
 }

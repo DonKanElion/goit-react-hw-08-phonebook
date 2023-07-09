@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import Navigation from 'components/Navigation/Navigation';
 import { AuthNav } from 'components/AuthNav/AuthNav';
 import { UserMemu } from 'components/UserMenu/UserMenu';
+
+import css from './AppBar.module.css';
 
 export const AppBar = () => {
   const [activeUser, setActiveUser] = useState(false);
@@ -14,20 +17,18 @@ export const AppBar = () => {
   };
 
   return (
+    // <header className={css.header}>
     <header>
       <div className="container">
         <nav>
-          <a href="/">Home</a>
-          <br />
+          <Navigation />
           <button type="button" onClick={handleToggle}>
             Switch Auth user {userState}
           </button>
         </nav>
-        
+
         {!activeUser ? <UserMemu /> : <AuthNav />}
-        
       </div>
-      <h1>Contacts manager welcome page 💁‍♀️</h1>
     </header>
   );
 };

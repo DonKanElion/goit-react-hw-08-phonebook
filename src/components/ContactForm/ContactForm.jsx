@@ -38,8 +38,8 @@ function ContactForm() {
     );
 
     if (!checkContact) {
-      const data = {name, phone};
-      console.log(data); 
+      const data = { name, phone };
+      console.log(data);
       dispatch(addContact(data));
       return resetAll();
     }
