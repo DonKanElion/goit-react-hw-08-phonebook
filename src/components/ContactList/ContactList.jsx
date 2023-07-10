@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
 import { getFilterValue, selectVisibleContacts } from 'redux/selectors';
-import classNames from 'classnames';
 
 import ContactListItem from './ContactListItem';
 import s from './ContactList.module.css';
@@ -22,7 +21,7 @@ const ContactList = () => {
   const visibleContacts = getVisibleContacts(contacts, query);
 
   return (
-    <div className={classNames(s.box, s.contactForm)}>
+    <div className='box'>
       <h3 className={s.title_comp}>Contacts</h3>
 
       <ul className={s.list}>

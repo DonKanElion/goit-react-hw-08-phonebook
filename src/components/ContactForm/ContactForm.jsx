@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getContacts } from 'redux/selectors';
 import { addContact } from 'redux/operations';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import classNames from 'classnames';
 
-import s from './ContactForm.module.css';
+import s from '../Form/Form.module.css';
 
 function ContactForm() {
   const [name, setName] = useState('');
@@ -62,9 +61,9 @@ function ContactForm() {
   };
 
   return (
-    <div className={classNames(s.box, s.contactForm)}>
-      <form onSubmit={handleSubmit}>
-        <label className={s.title_comp}>
+    <div className="box">
+      <form onSubmit={handleSubmit} className={s.form}>
+        <label className={s.label}>
           Name
           <input
             className={s.input}
@@ -79,7 +78,7 @@ function ContactForm() {
           />
         </label>
 
-        <label className={s.title_comp}>
+        <label className={s.label}>
           Phone
           <input
             className={s.input}

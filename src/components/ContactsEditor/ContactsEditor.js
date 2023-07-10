@@ -3,12 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/operations';
 import { getContacts, getError, getIsLoading } from 'redux/selectors';
 
-import ContactForm from 'components/ContactForm/ContactForm'
+import ContactForm from 'components/ContactForm/ContactForm';
 import ContactList from 'components/ContactList/ContactList';
-import Filter from 'components/Filter/Filter'
+import Filter from 'components/Filter/Filter';
 
-
- const  ContactsEditor = () => {
+const ContactsEditor = () => {
   const dispatch = useDispatch();
   const items = useSelector(getContacts);
   const isLoading = useSelector(getIsLoading);
@@ -19,16 +18,8 @@ import Filter from 'components/Filter/Filter'
   }, [dispatch]);
 
   return (
-    <div
-      style={{
-        display: 'block',
-        textAlign: 'center',
-        marginBottom: '20px',
-        color: '#010101',
-      }}
-      className="section"
-    >
-      <h1 className="hero_title">Phonebook</h1>
+    <>
+      <h1>Phonebook</h1>
 
       <ContactForm></ContactForm>
 
@@ -46,8 +37,8 @@ import Filter from 'components/Filter/Filter'
       {error && <b>Error: {error}</b>}
 
       {/* {isLoading && !error && <b>Request in progress...</b>}     */}
-    </div>
+    </>
   );
-}
+};
 
-export default ContactsEditor; 
+export default ContactsEditor;

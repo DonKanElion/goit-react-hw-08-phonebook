@@ -10,17 +10,7 @@ import NotFound from 'pages/NotFound';
 
 export function App() {
   return (
-    <div
-      style={{
-        display: 'block',
-        textAlign: 'center',
-        marginBottom: '20px',
-        color: '#010101',
-      }}
-      className="section"
-    >
-      <h3 className="hero_title">Phonebook 💁‍♂️ </h3>
-
+    <div>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />

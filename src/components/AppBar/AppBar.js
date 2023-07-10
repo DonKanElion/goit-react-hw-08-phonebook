@@ -7,7 +7,6 @@ import css from './AppBar.module.css';
 
 export const AppBar = () => {
   const [activeUser, setActiveUser] = useState(false);
-  const userState = String(activeUser);
 
   const handleToggle = () => {
     if (!activeUser) {
@@ -17,18 +16,13 @@ export const AppBar = () => {
   };
 
   return (
-    // <header className={css.header}>
-    <header>
-      <div className="container">
-        <nav>
-          <Navigation />
-          <button type="button" onClick={handleToggle}>
-            Switch Auth user {userState}
-          </button>
-        </nav>
+    <header className={css.header}>
+      <Navigation />
+      <button type="button" onClick={handleToggle}>
+        Turn On/Off
+      </button>
 
-        {!activeUser ? <UserMemu /> : <AuthNav />}
-      </div>
+      {!activeUser ? <UserMemu /> : <AuthNav />}
     </header>
   );
 };
