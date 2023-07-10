@@ -113,3 +113,9 @@ li {
 .box.white_box {
   background-color: #fff;
 }
+
+.section_title {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}

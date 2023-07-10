@@ -29,7 +29,7 @@ export const LoginForm = () => {
               className={s.input}
               type="password"
               name="password"
-              placeholder="********"
+              placeholder="••••••••"
             />
           </label>
           <button         className={classNames(s.btn, s.btn_center)}

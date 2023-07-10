@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { setFilter } from 'redux/contactsSlice';
 
-import s from '../ContactList/ContactList.module.css';
+import s from './Filter.module.css';
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -12,10 +12,9 @@ const Filter = () => {
   };
 
   return (
-    // <div className={classNames(s.box, s.contactList)}>
     <div className="box white_box">
-      <label className={s.text}>
-        Find contacts by name
+      <label className={s.label}>
+        <p className='section_title'>Find contact by name:</p>
         <input
           type="text"
           name="filter"

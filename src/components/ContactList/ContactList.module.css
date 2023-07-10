@@ -1,52 +1,29 @@
-.box {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-
-  width: 356px;
-  margin: 0 auto;
-  padding: 14px;
-
-  font-size: 14px;
-
-  background-color: rgba(245, 244, 250, 1);
-  border: 1px solid black;
-  border-radius: 4px;
-  box-shadow: 0px 4px 4px rgb(0 0 0 / 15%);
-}
-
-.contactList {
-  margin-bottom: 12px;
-  background-color: #fff;
-}
-
-.title_comp {
-  font-size: 24px;
-  font-weight: 400;
-  margin-bottom: 5px;
-}
-
 .list {
-  margin-left: 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 4px;
 }
 
 .item {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   padding: 4px 6px;
-  margin-right: auto;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 .item_wrap{
-  margin-right: 16px;
-
+  margin-right: 8px;
 }
 
-.item_text {
+.user_photo{
+  margin-right: 8px;
+}
+
+.item_name {
+  font-weight: 500;
 text-align: left;
 text-shadow: 0px 2px 2px rgb(0 0 0 / 10%);
 }
@@ -55,38 +32,23 @@ text-shadow: 0px 2px 2px rgb(0 0 0 / 10%);
   text-align: left;
   font-weight: 400;
   text-shadow: 0px 2px 2px rgb(0 0 0 / 10%);
-  padding: 5px 0 0 25px;
-
-}
-
-.input {
-  display: block;
-  width: 160px;
-  font-size: 14px;
-  padding: 5px;
-  border-radius: 4px;
-}
-
-.text {
-  font-size: 16px;
-  font-weight: 400;
-  text-align: left;
 }
 
 .btn_del {
   display: flex;
   align-items: center;
   justify-content: center;
-
   margin-left: auto;
   min-width: 70px;
-  height: 24px;
-
+  /* height: 24px; */
   padding: 2px 10px;
-  font-weight: 600;
+
+  font-weight: 500;
   font-size: 12px;
+  text-shadow: 0px 2px 2px rgb(0 0 0 / 10%);
   line-height: 1.6;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.03em;
+
   background-color: lightgrey;
   border: 0 transparent;
   border-radius: 4px;

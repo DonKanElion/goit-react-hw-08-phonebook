@@ -15,14 +15,14 @@ const getVisibleContacts = (contacts, query) => {
 
 const ContactList = () => {
   const contacts = useSelector(selectVisibleContacts);
-  
+
   const query = useSelector(getFilterValue);
 
   const visibleContacts = getVisibleContacts(contacts, query);
 
   return (
-    <div className='box'>
-      <h3 className={s.title_comp}>Contacts</h3>
+    <div className="box">
+      <p className="section_title">Contacts:</p>
 
       <ul className={s.list}>
         {visibleContacts.map(({ id, name, phone }) => {

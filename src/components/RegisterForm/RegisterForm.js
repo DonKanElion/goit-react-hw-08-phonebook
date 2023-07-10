@@ -36,7 +36,7 @@ export const RegisterForm = () => {
               className={s.input}
               type="password"
               name="password"
-              placeholder="********"
+              placeholder="••••••••"
             ></input>
           </label>
           <button
