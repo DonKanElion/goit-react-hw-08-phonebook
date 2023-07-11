@@ -1,10 +1,18 @@
 import classNames from 'classnames';
+import { useNavigate } from 'react-router-dom';
 import s from '../Form/Form.module.css';
 
 export const RegisterForm = () => {
+
+  const navigate = useNavigate();
+
   const handelSubmit = evt => {
     evt.preventDefault();
     console.log('Hello Submit');
+
+      //  if (response.success) {
+      navigate("/login", { replace: true });
+    // }
   };
 
   return (
