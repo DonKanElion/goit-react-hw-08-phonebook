@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import defaultPhoto from 'defaultphotocontacts.png';
 
-import { deleteContact } from 'redux/operations';
+import { deleteContact } from 'redux/contacts/operations';
 import s from './ContactList.module.css';
 
 const ContactListItem = ({ id, name, number }) => {

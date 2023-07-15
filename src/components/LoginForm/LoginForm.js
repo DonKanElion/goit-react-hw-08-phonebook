@@ -7,8 +7,6 @@ import s from '../Form/Form.module.css';
 export const LoginForm = () => {
   const navigate = useNavigate();
 
-  console.log(navigate);
-
   const handleSubmit = evt => {
     evt.preventDefault();
     console.log('Submit LoginForm');
