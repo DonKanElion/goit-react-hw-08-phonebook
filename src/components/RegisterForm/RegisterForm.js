@@ -112,6 +112,9 @@ export const RegisterForm = () => {
               type="text"
               name="name"
               placeholder="Barbara"
+              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
             ></input>
           </label>
           <label className={s.label}>
@@ -121,6 +124,8 @@ export const RegisterForm = () => {
               type="email"
               name="email"
               placeholder="ex: myname@example.com"
+              pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$"
+              required
             ></input>
           </label>
           <label className={s.label}>
@@ -130,6 +135,8 @@ export const RegisterForm = () => {
               type="password"
               name="password"
               placeholder="••••••••"
+              pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+              required
             ></input>
           </label>
           <button

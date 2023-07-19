@@ -1,6 +1,6 @@
 // import { useDispatch } from "react-redux";
 // import { logIn}
-import  { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
 import s from '../Form/Form.module.css';
 
@@ -11,8 +11,8 @@ export const LoginForm = () => {
     evt.preventDefault();
     console.log('Submit LoginForm');
 
-  //  if (response.success) {
-      navigate("/contacts", { replace: true });
+    //  if (response.success) {
+    navigate('/contacts', { replace: true });
     // }
   };
   return (
@@ -38,8 +38,7 @@ export const LoginForm = () => {
               placeholder="••••••••"
             />
           </label>
-          <button         className={classNames(s.btn, s.btn_center)}
- type="submit">
+          <button className={classNames(s.btn, s.btn_center)} type="submit">
             Log In
           </button>
         </form>
