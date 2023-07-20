@@ -7,8 +7,12 @@ export const getFilterValue = state => state.filter;
 // NEW !!! місто get => use select.
 
 export const selectVisibleContacts = state => {
-const contacts = getContacts(state);
-const filterValue = getFilterValue(state);
+  const contacts = getContacts(state);
+  const filterValue = getFilterValue(state);
 
-return !contacts ? [] : contacts.filter(contact => contact.name.toLowerCase().includes(filterValue.toLowerCase()))
+  return !contacts
+    ? []
+    : contacts.filter(contact =>
+        contact.name.toLowerCase().includes(filterValue.toLowerCase())
+      );
 };

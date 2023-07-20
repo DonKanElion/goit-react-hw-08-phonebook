@@ -23,7 +23,7 @@ const ContactsEditor = () => {
 
       <ContactForm></ContactForm>
 
-      {isLoading && <b>Loading contacts...</b>}
+      {isLoading && <b>Loading contacts...test is Loading</b>}
 
       {items.length !== 0 ? (
         <>

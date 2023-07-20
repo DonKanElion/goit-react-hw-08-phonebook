@@ -3,18 +3,18 @@ import { useNavigate } from 'react-router-dom';
 import s from '../Form/Form.module.css';
 import axios from 'axios';
 
-const BASE_URL = `https://connections-api.herokuapp.com/`;
-axios.defaults.baseURL = BASE_URL;
+// const BASE_URL = `https://connections-api.herokuapp.com/`;
+// axios.defaults.baseURL = BASE_URL;
 
 const newUser = {
-  name: 'Anton9  Test',
-  email: '9test@test.com',
-  password: '098721awdawdaw3',
+  name: 'Anton01  Test',
+  email: '01test@test.com',
+  password: '018721awdawdaw3',
 };
 
 const loginTest = {
-  email: '9test@test.com',
-  password: '098721awdawdaw3',
+  email: '01test@test.com',
+  password: '018721awdawdaw3',
 };
 
 const TOKEN =
@@ -35,6 +35,7 @@ export const RegisterForm = () => {
     try {
       const responce = await axios.post('/users/signup', newUser);
       setAuthHeader(responce.data.token);
+      TOKEN = responce.data.token;
       console.log('Responce: ', responce);
     } catch (e) {
       console.log('Error: ', e);
@@ -62,16 +63,16 @@ export const RegisterForm = () => {
     const params = {
       authorization: TOKEN,
     };
-    console.log('Authorization', TOKEN);
+    console.log('logout 1', TOKEN);
 
     try {
       const responce = await axios.post('/users/logout', params);
       clearAuthHeader();
 
-      console.log('TOKEN: ', TOKEN);
+      console.log('TOKEN 2: ', TOKEN);
       console.log('Responce: ', responce);
     } catch (e) {
-      console.log('Error: ', e);
+      console.log('Error logout: ', e);
     }
   };
 
@@ -80,8 +81,8 @@ export const RegisterForm = () => {
   const handelSubmit = evt => {
     evt.preventDefault();
     console.log('Hello Submit');
-    // register();
-    login();
+    regisrer();
+    // login();
     // logout();
     //  if (response.success) {
     // navigate('/login', { replace: true });
@@ -92,9 +93,9 @@ export const RegisterForm = () => {
     evt.preventDefault();
     console.log('Hello Submit');
     // singUp();
-    // login();
+    login();
     console.log('token xxx: ', TOKEN);
-    logout();
+    // logout();
     //  if (response.success) {
     // navigate('/login', { replace: true });
     // }
@@ -112,9 +113,9 @@ export const RegisterForm = () => {
               type="text"
               name="name"
               placeholder="Barbara"
-              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
+              // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+              // title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+              // required
             ></input>
           </label>
           <label className={s.label}>
@@ -124,8 +125,8 @@ export const RegisterForm = () => {
               type="email"
               name="email"
               placeholder="ex: myname@example.com"
-              pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$"
-              required
+              // pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$"
+              // required
             ></input>
           </label>
           <label className={s.label}>
@@ -135,8 +136,8 @@ export const RegisterForm = () => {
               type="password"
               name="password"
               placeholder="••••••••"
-              pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
-              required
+              // pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+              // required
             ></input>
           </label>
           <button

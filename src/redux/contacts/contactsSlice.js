@@ -1,13 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  fetchContacts,
-  addContact,
-  deleteContact,
-} from './operations';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
+import { fetchContacts, addContact, deleteContact } from './operations';
 
 const initialState = {
   contacts: {
-    items: [],
+    items: [
+      { id: 'id-1', name: 'Testing Holly', number: '443-89-12' },
+      { id: 'id-2', name: 'Bradley Cooper', number: '443-89-12' },
+      { id: 'id-3', name: 'Elijah Jordan', number: '443-89-12' },
+    ],
     isLoading: false,
     error: null,
   },
@@ -30,11 +33,12 @@ export const contactsSlice = createSlice({
     setFilter: {
       reducer(state, action) {
         return {
-        ...state,
-        filter: action.payload,
-      }
+          ...state,
+          filter: action.payload,
+        };
+      },
     },
-  }},
+  },
   extraReducers: {
     [fetchContacts.pending]: hundlePending,
     [fetchContacts.fulfilled](state, action) {
@@ -63,71 +67,16 @@ export const contactsSlice = createSlice({
   },
 });
 
-export const contactsReducer = contactsSlice.reducer;
+const contactsReducer = contactsSlice.reducer;
 export const { setFilter } = contactsSlice.actions;
 
-// export const contactsSlice = createSlice({
-//   {
-//     contacts: {
-//       items: [],
-//       isLoading: false,
-//       error: null,
-//       filter: "",
-//     },
-//      reducers: {
-//         fetchingInProgress(state) {
-//           state.isLoading = true;
-//         },
-//         fetchingSuccess(state, action) {
-//           state.isLoading = false;
-//           state.error = null;
-//           state.items = action.payload;
-//         },
-//         fetchingError(state, action) {
-//           state.isLoading = false;
-//           state.error = action.payload;
-//         },
-//       },
-//   });
+const persistConfig = {
+  key: 'contacts',
+  storage,
+  whitelist: ['contacts'],
+};
 
-// export const contactsSlice = createSlice({
-//   name: 'contacts',
-//   initialState,
-//   reducers: {
-//     addContact: {
-//       reducer(state, action) {
-//         const newContact = action.payload;
-//         state.contacts.push(newContact);
-//       },
-
-//       prepare(name, number) {
-//         return {
-//           payload: {
-//             id: 'id-' + nanoid(2),
-//             name,
-//             number,
-//           },
-//         };
-//       },
-//     },
-
-//     deleteContact(state, action) {
-//       return {
-//         ...state,
-//         contacts: state.contacts.filter(
-//           contact => contact.id !== action.payload
-//         ),
-//       };
-//     },
-
-//     findContact(state, action) {
-//       return {
-//         ...state,
-//         filter: action.payload,
-//       };
-//     },
-//   },
-// });
-
-// export const { addContact, deleteContact, findContact } = contactsSlice.actions;
-// export const contactsReducer = contactsSlice.reducer;
+export const persistedContactsReducer = persistReducer(
+  persistConfig,
+  contactsReducer
+);

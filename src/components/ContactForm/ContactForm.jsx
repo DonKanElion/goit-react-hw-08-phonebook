@@ -92,9 +92,7 @@ function ContactForm() {
             required
           />
         </label>
-      </form>
-
-      <button
+        <button
         type="submit"
         name="addContact"
         onClick={handleSubmit}
@@ -102,6 +100,9 @@ function ContactForm() {
       >
         Add contact
       </button>
+      </form>
+
+
     </div>
   );
 }

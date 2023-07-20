@@ -12,7 +12,7 @@ export const LoginForm = () => {
     console.log('Submit LoginForm');
 
     //  if (response.success) {
-    navigate('/contacts', { replace: true });
+    // navigate('/contacts', { replace: true });
     // }
   };
   return (
