@@ -27,6 +27,7 @@ export const LoginForm = () => {
               type="email"
               name="email"
               placeholder="Email"
+              // autoComplete="email"
             />
           </label>
           <label className={s.label}>
@@ -36,6 +37,7 @@ export const LoginForm = () => {
               type="password"
               name="password"
               placeholder="••••••••"
+              // autoComplete="current-password"
             />
           </label>
           <button className={classNames(s.btn, s.btn_center)} type="submit">

@@ -5,7 +5,7 @@ import defaultPhoto from 'defaultphotocontacts.png';
 import { deleteContact } from 'redux/contacts/operations';
 import s from './ContactList.module.css';
 
-const ContactListItem = ({ id, name, number }) => {
+const ContactListItem = ({ id, name, phone }) => {
   const dispatch = useDispatch();
   const hundleDelete = () => dispatch(deleteContact(id));
 
@@ -20,7 +20,7 @@ const ContactListItem = ({ id, name, number }) => {
       />
       <div className={s.item_wrap}>
         <p className={s.item_name}>{name}</p>
-        <p className={s.item_number}>{number}</p>
+        <p className={s.item_number}>{phone}</p>
       </div>
 
       <button
@@ -38,7 +38,7 @@ const ContactListItem = ({ id, name, number }) => {
 ContactListItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
 };
 
 export default ContactListItem;

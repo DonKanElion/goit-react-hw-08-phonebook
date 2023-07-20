@@ -1,7 +1,8 @@
-import classNames from 'classnames';
-import { useNavigate } from 'react-router-dom';
-import s from '../Form/Form.module.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import classNames from 'classnames';
+
+import s from '../Form/Form.module.css';
 
 // const BASE_URL = `https://connections-api.herokuapp.com/`;
 // axios.defaults.baseURL = BASE_URL;
@@ -113,6 +114,7 @@ export const RegisterForm = () => {
               type="text"
               name="name"
               placeholder="Barbara"
+              autoComplete="username"
               // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
               // title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
               // required
@@ -125,6 +127,7 @@ export const RegisterForm = () => {
               type="email"
               name="email"
               placeholder="ex: myname@example.com"
+              autoComplete="email"
               // pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$"
               // required
             ></input>
@@ -136,6 +139,7 @@ export const RegisterForm = () => {
               type="password"
               name="password"
               placeholder="••••••••"
+              autoComplete="new-password"
               // pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
               // required
             ></input>

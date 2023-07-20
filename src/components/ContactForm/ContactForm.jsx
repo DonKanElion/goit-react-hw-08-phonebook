@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from 'redux/contacts/selectors';
+import { selectContacts } from 'redux/contacts/selectors';
 import { addContact } from 'redux/contacts/operations';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
@@ -9,7 +9,7 @@ import s from '../Form/Form.module.css';
 function ContactForm() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const handleChange = evt => {
@@ -72,9 +72,9 @@ function ContactForm() {
             value={name}
             onChange={handleChange}
             placeholder="Pavlo Tychina"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
+            // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            // title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            // required
           />
         </label>
 
@@ -87,22 +87,20 @@ function ContactForm() {
             value={phone}
             onChange={handleChange}
             placeholder="+ 380 66 055 80 41"
-            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            title="Phone Phone must be digits and can contain spaces, dashes, parentheses and can start with +"
-            required
+            // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            // title="Phone Phone must be digits and can contain spaces, dashes, parentheses and can start with +"
+            // required
           />
         </label>
         <button
-        type="submit"
-        name="addContact"
-        onClick={handleSubmit}
-        className={s.btn}
-      >
-        Add contact
-      </button>
+          type="submit"
+          name="addContact"
+          onClick={handleSubmit}
+          className={s.btn}
+        >
+          Add contact
+        </button>
       </form>
-
-
     </div>
   );
 }

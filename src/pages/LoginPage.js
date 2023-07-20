@@ -4,9 +4,7 @@ import { LoginForm } from 'components/LoginForm/LoginForm';
 export default function Login() {
   return (
     <div>
-      <Helmet>
-        <h3>Login</h3>
-      </Helmet>
+      <Helmet/>
       <LoginForm />
     </div>
   );

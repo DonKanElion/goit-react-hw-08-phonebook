@@ -1,5 +1,10 @@
 import { useSelector } from 'react-redux';
-import { getFilterValue, selectVisibleContacts } from 'redux/contacts/selectors';
+import {
+  selectFilterValue,
+  // selectVisibleContacts,
+} from 'redux/filter/selectors';
+
+import { selectContacts } from 'redux/contacts/selectors';
 
 import ContactListItem from './ContactListItem';
 import s from './ContactList.module.css';
@@ -14,9 +19,8 @@ const getVisibleContacts = (contacts, query) => {
 };
 
 const ContactList = () => {
-  const contacts = useSelector(selectVisibleContacts);
-
-  const query = useSelector(getFilterValue);
+  const contacts = useSelector(selectContacts);
+  const query = useSelector(selectFilterValue);
 
   const visibleContacts = getVisibleContacts(contacts, query);
 
@@ -31,7 +35,7 @@ const ContactList = () => {
               key={id}
               id={id}
               name={name}
-              number={phone}
+              phone={phone}
             ></ContactListItem>
           );
         })}
