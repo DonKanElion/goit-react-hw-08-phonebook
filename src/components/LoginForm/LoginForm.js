@@ -1,19 +1,24 @@
-// import { useDispatch } from "react-redux";
-// import { logIn}
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { logIn } from 'redux/auth/operations';
 import classNames from 'classnames';
 import s from '../Form/Form.module.css';
 
 export const LoginForm = () => {
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    console.log('Submit LoginForm');
+    const form = evt.currentTarget;
 
-    //  if (response.success) {
-    // navigate('/contacts', { replace: true });
-    // }
+    dispatch(
+      logIn({
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+      })
+    );
+
+    form.reset();
   };
   return (
     <>
@@ -27,7 +32,7 @@ export const LoginForm = () => {
               type="email"
               name="email"
               placeholder="Email"
-              // autoComplete="email"
+              autoComplete="email"
             />
           </label>
           <label className={s.label}>
@@ -37,7 +42,7 @@ export const LoginForm = () => {
               type="password"
               name="password"
               placeholder="••••••••"
-              // autoComplete="current-password"
+              autoComplete="current-password"
             />
           </label>
           <button className={classNames(s.btn, s.btn_center)} type="submit">

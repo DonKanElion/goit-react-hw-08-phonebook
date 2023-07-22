@@ -1,9 +1,5 @@
 import { NavLink } from 'react-router-dom';
-
 import css from './AuthNav.module.css'
-
-// import { RegisterForm } from 'components/RegisterForm/RegisterForm';
-// import { LoginForm } from 'components/LoginForm/LoginForm';
 
 export const AuthNav = () => {
   return (

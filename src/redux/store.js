@@ -11,6 +11,7 @@ import {
 
 import { persistedContactsReducer } from './contacts/contactsSlice';
 import { filterReducer } from './filter/filterSlice';
+import { persistAuthReducer } from './auth/slice';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -24,6 +25,7 @@ export const store = configureStore({
   reducer: {
     contacts: persistedContactsReducer,
     filter: filterReducer,
+    auth: persistAuthReducer,
   },
   middleware,
 });

@@ -4,7 +4,10 @@ import ContactsEditor from 'components/ContactsEditor/ContactsEditor';
 const Contacts = () => {
   return (
     <div>
-      <Helmet/>
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
+
       <ContactsEditor />
     </div>
   );

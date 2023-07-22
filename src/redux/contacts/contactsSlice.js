@@ -64,5 +64,5 @@ const persistConfig = {
 
 export const persistedContactsReducer = persistReducer(
   persistConfig,
-  contactsReducer
+  contactsReducer,
 );
