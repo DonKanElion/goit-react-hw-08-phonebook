@@ -8,7 +8,7 @@ import s from '../Form/Form.module.css';
 
 function ContactForm() {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
@@ -19,7 +19,7 @@ function ContactForm() {
       case 'name':
         return setName(value);
       case 'phone':
-        return setPhone(value);
+        return setNumber(value);
       default:
         throw new Error(`Unsupported type of ${name}`);
     }
@@ -37,7 +37,7 @@ function ContactForm() {
     );
 
     if (!checkContact) {
-      const data = { name, phone };
+      const data = { name, number };
       console.log(data);
       dispatch(addContact(data));
       return resetAll();
@@ -47,13 +47,13 @@ function ContactForm() {
     resetName();
   };
 
-  const resetAll = () => {
-    setName('');
-    setPhone('');
-  };
-
   const resetName = () => {
     setName('');
+  };
+
+  const resetAll = () => {
+    setName('');
+    setNumber('');
   };
 
   const notifyWarning = text => {
@@ -84,7 +84,7 @@ function ContactForm() {
             className={s.input}
             type="tel"
             name="phone"
-            value={phone}
+            value={number}
             onChange={handleChange}
             placeholder="+ 380 66 055 80 41"
             // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -92,12 +92,7 @@ function ContactForm() {
             // required
           />
         </label>
-        <button
-          type="submit"
-          name="addContact"
-          onClick={handleSubmit}
-          className={s.btn}
-        >
+        <button type="submit" className={s.btn}>
           Add contact
         </button>
       </form>

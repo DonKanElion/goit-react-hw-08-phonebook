@@ -4,7 +4,7 @@ import { fetchContacts } from 'redux/contacts/operations';
 import {
   selectContacts,
   selectError,
-  selectIsLoading,
+  // selectIsLoading,
 } from 'redux/contacts/selectors';
 
 import ContactForm from 'components/ContactForm/ContactForm';
@@ -14,7 +14,7 @@ import Filter from 'components/Filter/Filter';
 const ContactsEditor = () => {
   const dispatch = useDispatch();
   const items = useSelector(selectContacts);
-  const isLoading = useSelector(selectIsLoading);
+  // const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const ContactsEditor = () => {
 
       <ContactForm></ContactForm>
 
-      {isLoading && <b>Loading contacts...test is Loading</b>}
+      {/* {isLoading && <b>Loading contacts...test is Loading</b>} */}
 
       {items.length !== 0 ? (
         <>

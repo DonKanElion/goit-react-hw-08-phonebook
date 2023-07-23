@@ -3,45 +3,40 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import { fetchContacts, addContact, deleteContact } from './operations';
+import { logOut } from 'redux/auth/operations';
 
-const initialState = {
-  items: [
-    { id: 'id-1', name: 'Testing Holly', phone: '443-89-12' },
-    { id: 'id-2', name: 'Bradley Cooper', phone: '443-89-12' },
-    { id: 'id-3', name: 'Elijah Jordan', phone: '443-89-12' },
-  ],
-  isLoading: false,
-  error: null,
+const handlePending = state => {
+  state.isLoading = true;
 };
 
-const hundlePending = state => {
-  state.contacts.isLoading = true;
-};
-
-const hundleRejected = (state, action) => {
-  state.contacts.isLoading = false;
-  state.contacts.error = action.payload;
+const handleRejected = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
 };
 
 export const contactsSlice = createSlice({
   name: 'contacts',
-  initialState,
+  initialState: {
+    items: [],
+    isLoading: false,
+    error: null,
+  },
   extraReducers: {
-    [fetchContacts.pending]: hundlePending,
+    [fetchContacts.pending]: handlePending,
     [fetchContacts.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
       state.items = action.payload;
     },
-    [fetchContacts.error]: hundleRejected,
-    [addContact.pending]: hundlePending,
+    [fetchContacts.error]: handleRejected,
+    [addContact.pending]: handlePending,
     [addContact.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
       state.items.push(action.payload);
     },
-    [addContact.rejected]: hundleRejected,
-    [deleteContact.pending]: hundlePending,
+    [addContact.rejected]: handleRejected,
+    [deleteContact.pending]: handlePending,
     [deleteContact.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
@@ -50,7 +45,12 @@ export const contactsSlice = createSlice({
       );
       state.items.splice(index, 1);
     },
-    [deleteContact.rejected]: hundleRejected,
+    [deleteContact.rejected]: handleRejected,
+    [logOut.fulfilled](state) {
+      state.items = [];
+      state.error = null;
+      state.isLoading = false;
+    },
   },
 });
 
@@ -64,5 +64,5 @@ const persistConfig = {
 
 export const persistedContactsReducer = persistReducer(
   persistConfig,
-  contactsReducer,
+  contactsReducer
 );

@@ -1,17 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// const PROJECT_TOKEN = '6488c7350e2469c038fe5961';
-// const BASE_URL = `https://${PROJECT_TOKEN}.mockapi.io/contacts`;
-
-// axios.defaults.baseURL = BASE_URL;
-
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
     try {
-      const responce = await axios.get('/contacts');
-      return responce.data;
+      const res = await axios.get('/contacts');
+      return res.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
@@ -20,10 +15,10 @@ export const fetchContacts = createAsyncThunk(
 
 export const addContact = createAsyncThunk(
   'contacts/addContact',
-  async (data, thunkAPI) => {
+  async (contactData, thunkAPI) => {
     try {
-      const resporse = await axios.post('/contacts', data);
-      return resporse.data;
+      const resp = await axios.post('/contacts', contactData);
+      return resp.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
@@ -34,8 +29,8 @@ export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
   async (contactId, thunkAPI) => {
     try {
-      const responce = await axios.delete(`/contacts/${contactId}`);
-      return responce.data;
+      const resp = await axios.delete(`/contacts/${contactId}`);
+      return resp.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }

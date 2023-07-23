@@ -29,13 +29,13 @@ const ContactList = () => {
       <p className="section_title">Contacts:</p>
 
       <ul className={s.list}>
-        {visibleContacts.map(({ id, name, phone }) => {
+        {visibleContacts.map(({ id, name, number }) => {
           return (
             <ContactListItem
               key={id}
               id={id}
               name={name}
-              phone={phone}
+              phone={number}
             ></ContactListItem>
           );
         })}

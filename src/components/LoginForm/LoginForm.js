@@ -20,6 +20,7 @@ export const LoginForm = () => {
 
     form.reset();
   };
+  
   return (
     <>
       <h2>Login</h2>
