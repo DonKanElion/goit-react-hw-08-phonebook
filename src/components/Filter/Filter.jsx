@@ -1,12 +1,12 @@
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 // import { selectFilterValue } from 'redux/filter/selectors';
-import { setFilter } from 'redux/filter/filterSlice';
+// import { setFilter } from 'redux/filter/filterSlice';
 
 import s from './Filter.module.css';
 
 const Filter = () => {
   // const filter = useSelector(selectFilterValue);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
 
   const handleChange = evt => {
@@ -16,7 +16,7 @@ const Filter = () => {
 
     console.log('Filter value ', value)
     // console.log(setFilter())
-    dispatch(setFilter(value));
+    // dispatch(setFilter(value));
   };
 
   return (
