@@ -1,16 +1,17 @@
 export const selectContacts = state => state.contacts.items;
 export const selectFilterValue = state => state.filter;
 
+// логіка з ContactsList
+// export const selectVisibleContacts = (value) => {
+//   const contacts = selectContacts();
+//   const filterValue = selectFilterValue(value);
+//   console.log('contacts: ', contacts);
+//   console.log('value: ', value);
 
-// ???? потрібно воно чи ні? 
-export const selectVisibleContacts = state => {
-  const contacts = selectContacts(state);
-  const filterValue = selectFilterValue(state);
-  console.log('selecr: ', contacts);
 
-  return !contacts
-    ? []
-    : contacts.filter(contact =>
-        contact.name.toLowerCase().includes(filterValue.toLowerCase())
-      );
-};
+//   return !contacts
+//     ? []
+//     : contacts.filter(contact =>
+//         contact.name.toLowerCase().includes(filterValue.toLowerCase())
+//       );
+// };

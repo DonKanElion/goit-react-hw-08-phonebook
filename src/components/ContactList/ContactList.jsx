@@ -1,8 +1,5 @@
 import { useSelector } from 'react-redux';
-import {
-  selectFilterValue,
-  // selectVisibleContacts,
-} from 'redux/filter/selectors';
+import { selectFilterValue } from 'redux/filter/selectors';
 
 import { selectContacts } from 'redux/contacts/selectors';
 

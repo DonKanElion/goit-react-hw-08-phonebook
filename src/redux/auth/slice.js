@@ -5,11 +5,17 @@ import { register, logIn, logOut, refreshUser } from './operations';
 
 const authSlice = createSlice({
   name: 'auth',
-  initialState: {
+  _initialState: {
     user: { name: null, email: null },
     token: null,
     isLoggedIn: false,
     isRefreshing: false,
+  },
+  get initialState() {
+    return this._initialState;
+  },
+  set initialState(value) {
+    this._initialState = value;
   },
   extraReducers: builder =>
     builder
