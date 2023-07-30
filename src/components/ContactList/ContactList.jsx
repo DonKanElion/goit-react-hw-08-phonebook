@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { selectFilterValue } from 'redux/filter/selectors';
 
@@ -19,11 +18,6 @@ const getVisibleContacts = (contacts, query) => {
 const ContactList = () => {
   const contacts = useSelector(selectContacts);
   const query = useSelector(selectFilterValue);
-
-  useEffect(() => {
-    console.log('Hello', contacts)
-  }, [contacts])
-  
   const visibleContacts = getVisibleContacts(contacts, query);
 
   return (
