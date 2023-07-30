@@ -4,10 +4,16 @@ import defaultPhoto from 'defaultphotocontacts.png';
 
 import { deleteContact } from 'redux/contacts/operations';
 import s from './ContactList.module.css';
+// import { ContactEditModal } from 'components/ContactEditModal/ContactEditModal';
 
 const ContactListItem = ({ id, name, phone }) => {
   const dispatch = useDispatch();
-  const hundleDelete = () => dispatch(deleteContact(id));
+  const handleDelete = () => dispatch(deleteContact(id));
+  
+  // const openModal = (id, name, phone) => {
+  //   console.log('Open modal');
+  //   return <ContactEditModal id={id} name={name} phone={phone} />;
+  // };
 
   return (
     <li className={s.item}>
@@ -27,9 +33,18 @@ const ContactListItem = ({ id, name, phone }) => {
         className={s.btn_del}
         name="del"
         type="button"
-        onClick={hundleDelete}
+        onClick={handleDelete}
       >
-        Delete
+        Del
+      </button>
+      <br />
+      <button
+        className={s.btn_del}
+        name="edit"
+        type="button"
+        // handleClick={openModal(id, name, phone)}
+      >
+        Ed
       </button>
     </li>
   );

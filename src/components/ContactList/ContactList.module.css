@@ -14,18 +14,18 @@
   font-weight: 400;
 }
 
-.item_wrap{
+.item_wrap {
   margin-right: 8px;
 }
 
-.user_photo{
+.user_photo {
   margin-right: 8px;
 }
 
 .item_name {
   font-weight: 500;
-text-align: left;
-text-shadow: 0px 2px 2px rgb(0 0 0 / 10%);
+  text-align: left;
+  text-shadow: 0px 2px 2px rgb(0 0 0 / 10%);
 }
 
 .item_number {
@@ -54,11 +54,14 @@ text-shadow: 0px 2px 2px rgb(0 0 0 / 10%);
   border-radius: 4px;
   box-shadow: 0px 2px 2px rgb(0 0 0 / 10%);
   cursor: pointer;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn_del:hover,
 .btn_del:focus {
   color: aliceblue;
   background-color: tomato;
+  transform: scale(1.02);
 }

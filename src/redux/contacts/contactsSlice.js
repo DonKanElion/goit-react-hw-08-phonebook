@@ -2,7 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { fetchContacts, addContact, deleteContact } from './operations';
+import {
+  fetchContacts,
+  addContact,
+  deleteContact,
+  editContact,
+} from './operations';
 import { logOut } from 'redux/auth/operations';
 
 const handlePending = state => {
@@ -50,6 +55,11 @@ export const contactsSlice = createSlice({
       state.items = [];
       state.error = null;
       state.isLoading = false;
+    },
+    [editContact.pending]: handlePending,
+    [editContact.fulfilld](state, action) {
+      console.log(state, action);
+      return state;
     },
   },
 });
