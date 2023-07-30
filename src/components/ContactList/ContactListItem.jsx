@@ -1,19 +1,23 @@
-import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { createPortal } from 'react-dom';
+import PropTypes from 'prop-types';
+
 import defaultPhoto from 'defaultphotocontacts.png';
 
 import { deleteContact } from 'redux/contacts/operations';
 import s from './ContactList.module.css';
-// import { ContactEditModal } from 'components/ContactEditModal/ContactEditModal';
+import { ContactEditModal } from 'components/ContactEditModal/ContactEditModal';
 
 const ContactListItem = ({ id, name, phone }) => {
+  const [showModal, setShowModal] = useState(false);
+
+    useEffect(() => {
+      console.log('Хуй зна що')
+  }, [showModal])
+
   const dispatch = useDispatch();
   const handleDelete = () => dispatch(deleteContact(id));
-  
-  // const openModal = (id, name, phone) => {
-  //   console.log('Open modal');
-  //   return <ContactEditModal id={id} name={name} phone={phone} />;
-  // };
 
   return (
     <li className={s.item}>
@@ -37,15 +41,25 @@ const ContactListItem = ({ id, name, phone }) => {
       >
         Del
       </button>
-      <br />
       <button
         className={s.btn_del}
         name="edit"
         type="button"
-        // handleClick={openModal(id, name, phone)}
+        onClick={() => setShowModal(true)}
       >
         Ed
       </button>
+
+      {showModal &&
+        createPortal(
+          <ContactEditModal
+            id={id}
+            name={name}
+            phone={phone}
+            onClose={() => setShowModal(false)}
+          />,
+          document.body
+        )}
     </li>
   );
 };

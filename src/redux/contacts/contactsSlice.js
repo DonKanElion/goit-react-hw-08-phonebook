@@ -58,8 +58,9 @@ export const contactsSlice = createSlice({
     },
     [editContact.pending]: handlePending,
     [editContact.fulfilld](state, action) {
-      console.log(state, action);
-      return state;
+      state.isLoading = false;
+      state.error = null;
+      state.items = action.payload;
     },
   },
 });
