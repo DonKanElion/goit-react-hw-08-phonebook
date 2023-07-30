@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
@@ -11,10 +11,6 @@ import { ContactEditModal } from 'components/ContactEditModal/ContactEditModal';
 
 const ContactListItem = ({ id, name, phone }) => {
   const [showModal, setShowModal] = useState(false);
-
-    useEffect(() => {
-      console.log('Хуй зна що')
-  }, [showModal])
 
   const dispatch = useDispatch();
   const handleDelete = () => dispatch(deleteContact(id));
