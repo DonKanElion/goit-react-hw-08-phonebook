@@ -40,11 +40,9 @@ export const logIn = createAsyncThunk(
 
 export const logOut = createAsyncThunk('auth/logOut', async (_, thunkAPI) => {
   try {
-    const res = await axios.post('/users/logout');
+    await axios.post('/users/logout');
     clearAuthHeader();
-    console.log('LogOut resp: ', res);
   } catch (e) {
-    console.log('Error logOut: ', e);
     return thunkAPI.rejectWithValue(e.message);
   }
 });
@@ -56,12 +54,10 @@ export const refreshUser = createAsyncThunk(
     if (!token) {
       return thunkAPI.rejectWithValue('No valid token');
     }
-
     setAuthHeader(token);
-
     try {
-      const { data } = await axios.get('/users/current');
-      return data;
+      const res = await axios.get('/users/current');
+      return res.data;
     } catch (e) {
       console.log('Error Refresh: ', e);
       return thunkAPI.rejectWithValue(e.message);

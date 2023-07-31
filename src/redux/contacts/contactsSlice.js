@@ -57,10 +57,13 @@ export const contactsSlice = createSlice({
       state.isLoading = false;
     },
     [editContact.pending]: handlePending,
-    [editContact.fulfilld](state, action) {
+    [editContact.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.items = action.payload;
+      const i = state.items.findIndex(
+        contact => contact.id === action.payload.id
+      );
+      state.items.splice(i, 1, action.payload);
     },
   },
 });

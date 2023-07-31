@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { FiEdit3, FiTrash2 } from 'react-icons/fi';
 
 import defaultPhoto from 'defaultphotocontacts.png';
 
@@ -29,22 +31,29 @@ const ContactListItem = ({ id, name, phone }) => {
         <p className={s.item_number}>{phone}</p>
       </div>
 
-      <button
-        className={s.btn_del}
-        name="del"
-        type="button"
-        onClick={handleDelete}
-      >
-        Del
-      </button>
-      <button
-        className={s.btn_del}
-        name="edit"
-        type="button"
-        onClick={() => setShowModal(true)}
-      >
-        Ed
-      </button>
+      <ul className={s.item_box_btn}>
+        <li>
+          <button
+            className={classNames(s.btn_change, s.btn_edit)}
+            name="edit"
+            type="button"
+            onClick={() => setShowModal(true)}
+          >
+            <FiEdit3 />
+          </button>
+        </li>
+
+        <li>
+          <button
+            className={s.btn_change}
+            name="del"
+            type="button"
+            onClick={handleDelete}
+          >
+            <FiTrash2 />
+          </button>
+        </li>
+      </ul>
 
       {showModal &&
         createPortal(
