@@ -1,7 +1,13 @@
+// import '~video-react/dist/video-react.css';
+import React from 'react';
+import { Player } from 'video-react';
+
 const styles = {
   container: {
-    marginTop: '50px',
+    margin: '0 0 40px',
+    padding: '40px',
     display: 'flex',
+    flexWrap: 'wrap',
     alingItems: 'center',
     justifyContent: 'center',
   },
@@ -21,6 +27,11 @@ function HomePage() {
           💁‍♀️
         </span>
       </h1>
+      <Player playsInline
+      poster="/assets/poster.png"
+      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4">
+        {/* <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" /> */}
+      </Player>
     </div>
   );
 }
