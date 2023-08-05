@@ -1,5 +1,4 @@
 @import-normalize; /* bring in normalize.css styles */
-@import '~video-react/dist/video-react.css';
 
 html {
   box-sizing: border-box;
