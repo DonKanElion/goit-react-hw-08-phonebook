@@ -36,8 +36,6 @@ function HomePage() {
         <YoutubeEmbed embedId="TMY4rQodTPc" />
       </div>
 
-      <YoutubeEmbed embedId="TMY4rQodTPc" />
-
     </div>
   );
 }
