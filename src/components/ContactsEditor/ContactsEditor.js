@@ -41,6 +41,7 @@ const ContactsEditor = () => {
       {error && <b>Error: {error}</b>}
 
       {/* {isLoading && !error && <b>Request in progress...</b>}     */}
+
     </>
   );
 };
