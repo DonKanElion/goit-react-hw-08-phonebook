@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { FiEdit3, FiTrash2 } from 'react-icons/fi';
 
-import defaultPhoto from 'defaultphotocontacts.png';
+import defaultPhoto from '../../images/defaultphotocontacts.png';
 
 import { deleteContact } from 'redux/contacts/operations';
 import s from './ContactList.module.css';

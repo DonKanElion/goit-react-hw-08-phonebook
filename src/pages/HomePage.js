@@ -5,8 +5,6 @@ const s = {
   container: {
     margin: '0 0 40px',
     padding: '20px 40px 40px',
-    // display: 'flex',
-    // flexWrap: 'wrap',
     alingItems: 'center',
     justifyContent: 'center',
   },

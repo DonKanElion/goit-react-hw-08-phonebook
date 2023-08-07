@@ -111,6 +111,10 @@ li {
   background-color: #fff;
 }
 
+.box:last-child {
+  margin-bottom: 60px;
+}
+
 .section_title {
   font-size: 14px;
   font-weight: 500;
