@@ -59,7 +59,7 @@ const authSlice = createSlice({
       })
 
       .addCase(refreshUser.pending, (state, action) => {
-        return state;
+        // return state;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload;
