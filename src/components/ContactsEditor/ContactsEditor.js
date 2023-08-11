@@ -35,7 +35,7 @@ const ContactsEditor = () => {
           <ContactList></ContactList>
         </>
       ) : (
-        <p>Looks like you don`t have any contacts. Please add new contact.</p>
+        <p style={{paddingBottom: '60px'}}>Looks like you don`t have any contacts. Please add new contact.</p>
       )}
 
       {error && <b>Error: {error}</b>}

@@ -72,9 +72,9 @@ function ContactForm() {
             value={name}
             onChange={handleChange}
             placeholder="Pavlo Tychina"
-            // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            // title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            // required
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
           />
         </label>
 
@@ -87,9 +87,9 @@ function ContactForm() {
             value={number}
             onChange={handleChange}
             placeholder="+ 380 66 055 80 41"
-            // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            // title="Phone Phone must be digits and can contain spaces, dashes, parentheses and can start with +"
-            // required
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone Phone must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
           />
         </label>
         <button type="submit" className={s.btn}>
