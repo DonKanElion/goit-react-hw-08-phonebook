@@ -38,7 +38,6 @@ function ContactForm() {
 
     if (!checkContact) {
       const data = { name, number };
-      console.log(data);
       dispatch(addContact(data));
       return resetAll();
     }
